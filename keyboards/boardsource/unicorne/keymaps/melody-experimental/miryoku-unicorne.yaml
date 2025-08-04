@@ -1,0 +1,33 @@
+layout:
+  qmk_keyboard: boardsource/unicorne
+  layout_name: LAYOUT_split_3x6_3
+  ## Let's pretend this is a 3x5 split, and see what we can cram in
+layers:
+  ## Base layer - Magic Sturdy layout
+  Base:
+    - [null, V, M, L, C, P, B, Magic, U, O, Q, null]
+    - [null, {h: Alt, t: S}, {h: Gui, t: T}, {h: Ctrl, t: R}, {h: Shift, t: D}, Y, F, {h: Shift, t: N}, {h: Ctrl, t: E}, {h: Gui, t: A}, {h: Alt, t: I}, null]
+    - [null, X, K, J, G, W, Z, H, ",", ".", ":", null]
+    - [{h: Nav, t: Delete}, {h: Number, t: Backspace}, Leader, Repeat, Space, Symbol]
+  ### SHIFT LAYERS
+  Number: ## Activation key is a dual-mode, hold for momentary, double-tap to toggle on
+    - [null, null, null, null, null, null, C, 7, 8, 9, D, null]
+    - [null, null, null, null, null, null, B, 4, 5, 6, E, null]
+    - [null, null, null, null, null, null, A, 1, 2, 3, F, null]
+    - [Layer Lock, {type: held}, null, ':', Num0, '.']
+  Symbol:
+    - [null, null, '\', '@', '/', '+', '&', '[', '%', ']', '!', null]
+    - [null, '^', '=', '_', '$', '*', '#', '(', ";", ')', '?', null]
+    - [null, '<', '|', '-', '>', '../', '~', '{', '$', '}', null, null]
+    - [null, '.', ":", null, null, {type: held}]
+  Nav:
+    - [null, null, null, null, null, null,      Redo, Paste, Copy, Cut, Undo, null]
+    - [null, Alt, Gui, Ctrl, Shift, Caps Word,      Caps Lock, Left, Down, Up, Right, null]
+    - [null, null, null, null, null, null,      Insert, Home, Page Down, Page Up, End, null]
+    - [null, {type: held}, null, null, null, null,]
+combos:
+    - {p: [26, 27], k: Cut, l: [Base]}
+    - {p: [27, 28], k: Copy, l: [Base]}
+    - {p: [26, 28], k: Paste, l: [Base], a: "bottom"}
+    - {p: [27, 29], k: Clip Hst, l: [Base], a: "bottom"}
+    - {p: [16, 19], k: Caps Word, l: [Base]}

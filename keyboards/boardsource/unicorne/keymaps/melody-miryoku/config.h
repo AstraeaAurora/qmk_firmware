@@ -17,13 +17,15 @@
 #define STARTUP_SONG SONG(NO_SOUND)
 
 /* Caps word */
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+// #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD // not terribly useful with homerow mods, better to map Caps-Word key explicitly
 #define CAPS_WORD_INVERT_ON_SHIFT
 #define CAPS_WORD_IDLE_TIMEOUT 3000
 
-/* Tap-hold config */
+/* Tap-hold config
+ * Set up for homerow mods*/
 #define TAPPING_TERM 200
 #define TAPPING_TOGGLE 3
+#define CHORDAL_HOLD
 #define PERMISSIVE_HOLD
 
 /* Mousekeys *
