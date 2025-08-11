@@ -2,52 +2,19 @@ layout:
   qmk_keyboard: boardsource/unicorne
   layout_name: LAYOUT_split_3x6_3
 ## Let's pretend this is a 3x5 split, and see what we can cram in
-  # PRINCIPLES
-  # (!) minimal mental state required for use
-  # consistent placement of commonly-used keys across all layers
-  # consistent fall-through logic; should be easy to get back to BASE layer from wherever you are
-  # no awkward same-hand gyrations, use alternate-hand chording whenever possible
-  # TECH
-  # home-row mods - eliminates most awkward gyrations for chording, reduces pinky load
-  # tap-hold: used all over the place for function-overloading; helps to eliminate need for extra mod keys
-  # magic key: like a more granular auto-complete; meant to minimize same-finger-bigrams and scissoring
-  # repeat key: what-it-says-on-the-tin; meant to compensate for globally disabling auto key repeat in firmware
-  # leader key(?): allows for more extensive macros; still debating usefulness of this one
-  # shift layers: layers for number entry, symbols, navigation, settings
-  #               number layer - should allow for quick entry of hexadecimal digits [0-9A-F], quick access to common math operators [+ - * / ^ =]
-  #               symbol layer - arranged to allow for frequently used bigraphs and trigraphs
-  #               media layer - media keys and ancillary settings (RGB controls, NKRO, &c.)
-  #               nav layer - arrow keys, nav cluster
-  #               fun layer - function keys
-  #               pad layer - special layer on LHS for use with mouse. RHS is hexadecimal numpad
-  #               mouse layer - FALLBACK OPTION - enables mouse control with keyboard
-  #               all layer shift keys are momentary
-  #               layer lock: CURrent for locking currently active layer, OPPosite for corresponding layer on opposite hand
-  #               primary functons of each layer on opposite hand from layer shift key
-  #               global toggles: available on all shift layers, on same hand as layer shift:
-  #               * QMK_BOOT - shift into bootloader mode for firmware update
-  #               * Tap - FALLBACK OPTION - disable homerow mods, provide dedicated mod keys [Ctrl Alt Shift Super]
-  #               * Base - switch base layer between available alpha layouts (currently Dvorak, Magic Sturdy, QWERTY)
-  #               global toggles REQUIRE DOUBLE-TAP
-  # layer lock on all shift layers
-## QMK options
-  # disable key repeat on base layer (is this necessary?)
-  # set QUICK_TAP_TERM to 0
-  # flow-tap: ignore tap-hold during rapid typing
-  # chordal input: must use opposite hand for mod input
 layers:
-  ## Base layer - Magic Sturdy layout
-  Base_MagicSturdy:
-    - [null, V, M, L, C, P, B, Magic, U, O, Q, null]
-    - [null, {h: Alt, t: S}, {h: Super, t: T}, {h: Ctrl, t: R}, {h: Shift, t: D}, Y, F, {h: Shift, t: N}, {h: Ctrl, t: E}, {h: Super, t: A}, {h: Alt, t: I}, null]
-    - [null, X, K, J, G, W, Z, H, ",", ".", ":", null]
-    - [{h: Function, t: Delete}, {h: Number, t: Backspace}, {h: Symbol, t: Enter}, {h: Mouse, t: Tab}, {h: Nav, t: Space}, {t: Esc, h: Media}]
-  Extra_Dvorak:
+  ## BASE LAYERS
+  Base_Dvorak:
     - [null, "'", ',', '.', P, Y, F, G, C, R, L, null]
     - [null, {h: Alt, t: A}, {h: Super, t: O}, {h: Ctrl, t: E}, {h: Shift, t: U}, I, D, {h: Shift, t: H}, {h: Ctrl, t: T}, {h: Super, t: N}, {h: Alt, t: S}, null]
     - [null, ':', Q, J, K, X, B, M, W, V, Z, null]
     - [{h: Function, t: Delete}, {h: Number, t: Backspace}, {h: Symbol, t: Enter}, {h: Mouse, t: Tab}, {h: Nav, t: Space}, {t: Esc, h: Media}]
-  Tap_QWERTY:
+  Extra_MagicSturdy:
+    - [null, V, M, L, C, P, B, Magic, U, O, Q, null]
+    - [null, {h: Alt, t: S}, {h: Super, t: T}, {h: Ctrl, t: R}, {h: Shift, t: D}, Y, F, {h: Shift, t: N}, {h: Ctrl, t: E}, {h: Super, t: A}, {h: Alt, t: I}, null]
+    - [null, X, K, J, G, W, Z, H, ",", ".", ":", null]
+    - [{h: Function, t: Delete}, {h: Number, t: Backspace}, {h: Symbol, t: Enter}, {h: Mouse, t: Tab}, {h: Nav, t: Space}, {t: Esc, h: Media}]
+  Tap_QWERTY: ## Tap-only layer, for games where home-row mods would cause problems. Leaving on QWERTY to minimize friction
     - [Alt, Q, W, E, R, T, Y, U, I, O, P, Super]
     - [Ctrl, A, S, D, F, G, H, J, K, L, ;, Ctrl]
     - [Shift, Z, X, C, V, B, N, M, "'", '.', '/', Shift]
@@ -56,39 +23,39 @@ layers:
   Number: ## Activation key is a dual-mode, hold for momentary, double-tap to toggle on
     - [Boot, null, Tap, Extra, Base, null, null, 7, 8, 9, null, null]
     - [null, Alt, Super, Ctrl, Shift, null, +, 4, 5, 6, '-', null]
-    - [Drop Toggles, null, null, Opp, Cur, null, null, 1, 2, 3, null, null]
+    - [Drop Toggles, null, null, LL Nav, LL Number, null, null, 1, 2, 3, null, null]
     - [null, {type: held}, null, ':', 0, '.']
   Symbol:
     - [Boot, null, Tap, Extra, Base, null, '[', '&', '*', null, ']', null]
     - [null, Alt, Super, Ctrl, Shift, null, '(', '$', '%', '^', ')', null]
-    - [Drop Toggles, null, null, Opp, Cur, null, '{', '!', '@', '#', '}', null]
+    - [Drop Toggles, null, null, LL Mouse, LL Symbol, null, '{', '!', '@', '#', '}', null]
     - [null, null, {type: held}, null, null, null]
   Nav:
     - [null, Page Up, Home, Up, End, Insert, System, Base, Extra, Tap, null, Boot]
     - [null, Page Dn, Left, Down, Right, Caps Word, null, Shift, Ctrl, Super, Alt, null]
-    - [null, Undo, Cut, Copy, Paste, Clip Hist, null, Cur, Opp, null, null, Drop Toggles]
+    - [null, Undo, Cut, Copy, Paste, Clip Hist, null, LL Nav, LL Number, null, null, Drop Toggles]
     - [Delete, Backspace, Enter, null, {type: held}, null,]
   Function:
     - [Boot, null, Tap, Extra, Base, null, PrtScn SysRq, F7, F8, F9, F12, null]
     - [null, Alt, Super, Ctrl, Shift, null, Scroll Lock, F4, F5, F6, F11, null]
-    - [Drop Toggles, null, null, Opp, Cur, null, Pause Break, F1, F2, F3, F10, null]
+    - [Drop Toggles, null, null, LL Media, LL Function, null, Pause Break, F1, F2, F3, F10, null]
     - [{type: held}, null, null, Tab, Space, Menu]
   Mouse:
-    - [null, null, Scroll Left, Mouse Up, Scroll Right, Scroll Up, null, null, null, null, null, null]
-    - [null, null, Mouse Left, Mouse Down, Mouse Right, Scroll Down, null, null, null, null, null, null]
-    - [null, null, null, null, null, null, null, null, null, null, null, Drop Toggles]
+    - [null, null, Scroll Left, Mouse Up, Scroll Right, Scroll Up, System, Base, Extra, Tap, null, Boot]
+    - [null, null, Mouse Left, Mouse Down, Mouse Right, Scroll Down, null, Shift, Ctrl, Super, Alt, null]
+    - [null, null, null, null, null, null, null, null, LL Symbol, LL Mouse, null, Drop Toggles]
     - [Mouse3, Mouse1, Mouse2, {type: held}, null, null]
   Media:
+    - [null, null, null, null, null, null, System, Base, Extra, Tap, null, Boot]
     - [null, null, null, null, null, null, null, null, null, null, null, null]
-    - [null, null, null, null, null, null, null, null, null, null, null, null]
-    - [null, null, null, null, null, null, null, null, null, null, null, Drop Toggles]
+    - [null, null, null, null, null, null, null, LL Media, LL Function, null, null, Drop Toggles]
     - [null, null, null, null, null, {type: held}]
   Pad:
     - [null, null, null, null, null, null, null, null, null, null, null, null]
     - [null, null, null, null, null, null, null, null, null, null, null, null]
     - [Drop Toggles, null, null, null, null, null, null, null, null, null, null, null]
     - [null, null, null, null, null, null]
-  Placeholder:
+  Numpad:
     - [null, null, null, null, null, null, null, null, null, null, null, null]
     - [null, null, null, null, null, null, null, null, null, null, null, null]
     - [Drop Toggles, null, null, null, null, null, null, null, null, null, null, null]
