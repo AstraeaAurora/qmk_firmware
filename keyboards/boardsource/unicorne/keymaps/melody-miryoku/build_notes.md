@@ -4,7 +4,7 @@
 * consistent fall-through logic; should be easy to get back to BASE layer from wherever you are
 * no awkward same-hand gyrations, use alternate-hand chording whenever possible
 * outer columns should be reserved for rarely-used functions, never mods
-* TECH
+## TECH
 * home-row mods - eliminates most awkward gyrations for chording, reduces pinky load
 * tap-hold: used all over the place for function-overloading; helps to eliminate need for extra mod keys
 * magic key: like a more granular auto-complete; meant to minimize same-finger-bigrams and scissoring
@@ -29,7 +29,7 @@
     *  global toggles REQUIRE DOUBLE-TAP
 * layer lock on all shift layers
 * DROP_TOGGLES - unsets all layer toggles, quick escape to current base layer
-*# QMK options
+## QMK options
 * disable key repeat on base layer (is this necessary?)
 * set QUICK_TAP_TERM to 0
 * flow-tap: ignore tap-hold during rapid typing
