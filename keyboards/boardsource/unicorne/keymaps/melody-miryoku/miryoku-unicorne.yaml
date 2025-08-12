@@ -25,20 +25,20 @@ layers:
     - [null, Alt, Super, Ctrl, Shift, null, +, 4, 5, 6, '-', null]
     - [Drop Toggles, null, null, LL Nav, LL Number, null, null, 1, 2, 3, null, null]
     - [null, {type: held}, null, ':', 0, '.']
-  Symbol:
-    - [Boot, null, Tap, Extra, Base, null, '[', '&', '*', null, ']', null]
-    - [null, Alt, Super, Ctrl, Shift, null, '(', '$', '%', '^', ')', null]
-    - [Drop Toggles, null, null, LL Mouse, LL Symbol, null, '{', '!', '@', '#', '}', null]
-    - [null, null, {type: held}, null, null, null]
+  Symbol: ## breaks the usual rules regarding same-hand chords to accomodate more symbols. still looking to avoid awkward gyrations
+    - [null, null, '\', '+', '/', '+', '&', '[', '%', ']', '!', null]
+    - [null, '^', '=', '-', '$', '*', '#', '(', ";", ')', '?', null]
+    - [Drop Toggles, '<', '|', '_', '>', '../', '~', '{', '$', '}', '`', null]
+    - [null, null, {type: held}, '.', '@', null]
   Nav:
     - [null, Page Up, Home, Up, End, Insert, System, Base, Extra, Tap, null, Boot]
     - [null, Page Dn, Left, Down, Right, Caps Word, null, Shift, Ctrl, Super, Alt, null]
     - [null, Undo, Cut, Copy, Paste, Clip Hist, null, LL Nav, LL Number, null, null, Drop Toggles]
     - [Delete, Backspace, Enter, null, {type: held}, null,]
   Function:
-    - [Boot, null, Tap, Extra, Base, null, PrtScn SysRq, F7, F8, F9, F12, null]
-    - [null, Alt, Super, Ctrl, Shift, null, Scroll Lock, F4, F5, F6, F11, null]
-    - [Drop Toggles, null, null, LL Media, LL Function, null, Pause Break, F1, F2, F3, F10, null]
+    - [Boot, null, Tap, Extra, Base, null, PrtScn SysRq, F7, F8, F9, F12, F15]
+    - [null, Alt, Super, Ctrl, Shift, null, Scroll Lock, F4, F5, F6, F11, F14]
+    - [Drop Toggles, null, null, LL Media, LL Function, null, Pause Break, F1, F2, F3, F10, F13]
     - [{type: held}, null, null, Tab, Space, Menu]
   Mouse:
     - [null, null, Scroll Left, Mouse Up, Scroll Right, Scroll Up, System, Base, Extra, Tap, null, Boot]
