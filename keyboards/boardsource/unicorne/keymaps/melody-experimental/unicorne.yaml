@@ -1,0 +1,37 @@
+layout:
+  qmk_keyboard: boardsource/unicorne
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  ### BASE LAYERS
+  Dvorak: ## for this and all other base layers, figure out how to do custom shifted keys e.g. : on base, ; on shift
+    - [Esc, '''', ",", ".", P, Y, F, G, C, R, L, Tab]
+    - [null, {h: Alt, t: A}, {h: Gui, t: O}, {h: Ctrl, t: E}, {h: Shift, t: U}, I, D, {h: Shift, t: H}, {h: Ctrl, t: T}, {h: Gui, t: N}, {h: Alt, t: S}, Enter]
+    - [Nav, ":", Q, J, K, X, B, M, W, V, Z, null]
+    - [{h: Number, t: Delete}, Backspace, Leader, Repeat, Space, Symbol]
+  Magic Sturdy:
+    - [Esc, V, M, L, C, P, B, Magic, U, O, Q, Tab]
+    - [null, {h: Alt, t: S}, {h: Gui, t: T}, {h: Ctrl, t: R}, {h: Shift, t: D}, Y, F, {h: Shift, t: N}, {h: Ctrl, t: E}, {h: Gui, t: A}, {h: Alt, t: I}, Enter]
+    - [null, X, K, J, G, W, Z, H, ",", ".", ":", null]
+    - [{h: Number, t: Delete}, Backspace, Leader, Repeat, Space, Symbol]
+  ### SHIFT LAYERS
+  Number: ## Activation key is a dual-mode, hold for momentary, double-tap to toggle on
+    - [Num/, Num*, 7, 8, 9, null, C, Num7, Num8, Num9, D, Tab]
+    - [null, Num-, 4, 5, 6, 0, B, Num4, Num5, Num6, E, Backspace]
+    - [null, Num+, 1, 2, 3, null, A, Num1, Num2, Num3, F, NumEnt]
+    - [{type: held}, Layer Lock, null, ':', Num0, '.']
+  Symbol:
+    - [null, null, '\', '@', '/', '+', '&', '[', '%', ']', '!', null]
+    - [null, '^', '=', '_', '$', '*', '#', '(', ";", ')', '?', null]
+    - [null, '<', '|', '-', '>', '../', '~', '{', '$', '}', null, null]
+    - [null, '.', ":", null, null, {type: held}]
+  Nav:
+    - [null, F1, F2, F3, F4, F5,      Ins, PgDn, Up, PgUp, Del, null]
+    - [null, F6, F7, F8, F9, F10,      Home, Left, Down, Right, End, null]
+    - [{type: held}, F11, F12, F13, F14, F15,      null, null, null, null, null, null]
+    - [null, null, null, null, null, null,]
+combos:
+    - {p: [26, 27], k: Cut, l: [Dvorak, Magic Sturdy]}
+    - {p: [27, 28], k: Copy, l: [Dvorak, Magic Sturdy]}
+    - {p: [26, 28], k: Paste, l: [Dvorak, Magic Sturdy], a: "bottom"}
+    - {p: [27, 29], k: Clip Hst, l: [Dvorak, Magic Sturdy], a: "bottom"}
+    - {p: [16, 19], k: Caps Word, l: [Dvorak, Magic Sturdy]}
