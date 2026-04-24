@@ -4,16 +4,19 @@
 #endif
 
 // custom keycodes
-#define KC_SUPR KC_LGUI
 #define Z_IN C(KC_EQL)
 #define Z_OUT C(KC_MINS)
 #define Z_RESET C(KC_0)
-#define CL_CUT C(KC_X)
-#define CL_COPY C(KC_C)
-#define CL_PAST C(KC_V)
-#define CL_HIST G(KC_V)
+#define CL_CUT G(KC_X)
+#define CL_COPY G(KC_C)
+#define CL_PAST G(KC_V)
+#define CL_HIST LCG(KC_V)
+#define WIN_CUT C(KC_X)
+#define WIN_CPY C(KC_C)
+#define WIN_PST C(KC_V)
 #define KC_EXPO G(KC_TAB)
 #define KC_LOCT G(KC_L)
+#define REBOOT LCA(KC_DEL)
 #define TAP_GUI OSM(MOD_LGUI)
 #define TAP_MEH OSM(MOD_MEH)
 #define TAP_HYPR OSM(MOD_HYPR)

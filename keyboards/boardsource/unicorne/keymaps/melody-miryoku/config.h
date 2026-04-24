@@ -28,6 +28,12 @@
 #define CHORDAL_HOLD
 #define PERMISSIVE_HOLD
 
+/* Leader key config */
+#define LEADER_TIMEOUT 250
+#define LEADER_PER_KEY_TIMING
+#define LEADER_NO_TIMEOUT
+#define LEADER_KEY_STRICT_KEY_PROCESSING
+
 /* Mousekeys *
 #define MK_KINETIC_SPEED
 #define MOUSEKEY_DELAY 5
